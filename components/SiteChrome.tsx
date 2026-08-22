@@ -11,27 +11,38 @@ const nav = [
 
 export function SiteHeader() {
   return (
-    <header className="prod-header">
-      <Link href="/" className="prod-brand" aria-label="Nurul Quran V2">
-        <span className="prod-brand-mark">ن</span>
-        <span><strong>Nurul Quran V2</strong><small>Qur'an • Ibadah • Kisah • Pengetahuan</small></span>
+    <header className="topbar" aria-label="Navigasi utama">
+      <Link href="/" className="brand" aria-label="Nurul Quran V2">
+        <span className="brand-mark">ن</span>
+        <span className="brand-copy">
+          <strong>Nurul Quran <small>V2</small></strong>
+          <span>Qur'an • Ibadah • Kisah • Pengetahuan</span>
+        </span>
       </Link>
-      <nav className="prod-nav" aria-label="Navigasi utama">
-        {nav.map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}
+
+      <nav className="desktop-nav" aria-label="Menu utama">
+        {nav.map(([href, label]) => (
+          <Link href={href} key={href}>{label}</Link>
+        ))}
       </nav>
-      <Link href="/quran" className="prod-header-cta">Mulai membaca</Link>
+
+      <div className="top-actions">
+        <Link href="/quran" className="continue-button" aria-label="Mulai membaca">
+          <span>☾</span><span>Mulai membaca</span>
+        </Link>
+      </div>
     </header>
   );
 }
 
 export function SiteFooter() {
   return (
-    <footer className="prod-footer">
+    <footer className="footer section-wrap">
       <div>
         <strong>Nurul Quran V2</strong>
-        <p>Platform edukasi berbasis materi, bukan sekadar kumpulan kartu.</p>
+        <p>Platform edukasi dengan materi Qur'an, doa, ibadah, kisah, dan pengetahuan lintas tradisi.</p>
       </div>
-      <p>Konten fikih dan lintas agama perlu mempertahankan rujukan, konteks, serta perbedaan mazhab/tradisi ketika dikembangkan lebih lanjut.</p>
+      <p className="footer-note">Materi fikih dan lintas agama dikembangkan dengan konteks, rujukan, serta penjelasan perbedaan mazhab/tradisi agar tetap informatif dan bertanggung jawab.</p>
     </footer>
   );
 }
