@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./production.css";
+import "./production-overrides.css";
 
 export const metadata: Metadata = {
   title: "Nurul Quran V2 — Qur'an, Ibadah & Pengetahuan Agama",
