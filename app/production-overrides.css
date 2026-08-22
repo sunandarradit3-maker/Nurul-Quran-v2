@@ -1,0 +1,133 @@
+/* Final visual consistency layer — Nurul Quran V2 */
+:root {
+  --prod-bg: #f4f1e8;
+  --prod-card: #eee7d8;
+  --prod-card-2: #e8dfcf;
+  --prod-ink: #17332d;
+  --prod-muted: #6d766f;
+  --prod-green: #0d3d35;
+  --prod-green-2: #175c4f;
+  --prod-soft: #e3e8df;
+  --prod-gold: #c9a45e;
+  --prod-border: #d2c8b7;
+}
+
+.topbar {
+  width: min(1240px, calc(100% - 28px));
+  margin: 14px auto 0;
+  padding: 10px 12px 10px 16px;
+  border: 1px solid rgba(23,51,45,.12);
+  border-radius: 22px;
+  background: rgba(238,231,216,.94);
+  box-shadow: 0 10px 30px rgba(20,45,38,.06);
+  backdrop-filter: blur(18px);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  position: sticky;
+  top: 10px;
+  z-index: 50;
+}
+.brand { text-decoration: none; }
+.desktop-nav { justify-self: center; display: flex; align-items: center; gap: 2px; padding: 4px; background: #e3e8df; border-radius: 14px; }
+.desktop-nav a { text-decoration: none; border: 0; background: transparent; padding: 9px 11px; border-radius: 10px; color: #6d766f; cursor: pointer; font-size: 12px; font-weight: 800; transition: .18s ease; white-space: nowrap; }
+.desktop-nav a:hover { background: #eee7d8; color: #17332d; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+.continue-button { text-decoration: none; }
+
+/* One warm card language everywhere — no random pure-white cards. */
+.prod-shell,
+.prod-main { background: var(--prod-bg); }
+.prod-feature-grid > a,
+.prod-module-grid > a,
+.prod-library-card,
+.prod-toc,
+.prod-info-grid > div,
+.prod-text-section,
+.prod-section-block,
+.prod-source,
+.prod-progress-card,
+.prod-article-actions button,
+.prod-home-actions a.secondary,
+.prod-library-stats span,
+.search-field {
+  background: var(--prod-card) !important;
+  border-color: var(--prod-border) !important;
+}
+.prod-feature-grid > a:hover,
+.prod-module-grid > a:hover,
+.prod-library-card:hover {
+  background: var(--prod-card-2) !important;
+  border-color: rgba(201,164,94,.72) !important;
+}
+.prod-feature-grid > a > span,
+.prod-card-symbol,
+.prod-article-meta span,
+.prod-tags span,
+.prod-checklist li {
+  background: var(--prod-soft) !important;
+}
+.prod-header,
+.prod-footer { background: transparent; }
+.prod-home-quote,
+.prod-prayer-display,
+.prod-surah-hero,
+.prod-section-hero,
+.prod-featured-dark {
+  background: linear-gradient(145deg, #0c3d34, #214b41) !important;
+}
+.prod-library-card p,
+.prod-feature-grid > a p,
+.prod-module-grid > a p { color: var(--prod-muted); }
+
+.mobile-nav { display: none; }
+
+@media (max-width: 1100px) {
+  .topbar { grid-template-columns: 1fr auto; }
+  .desktop-nav { display: none; }
+  .mobile-nav {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: fixed;
+    z-index: 80;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    border: 1px solid rgba(23,51,45,.12);
+    border-radius: 18px;
+    background: rgba(238,231,216,.96);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 12px 44px rgba(0,0,0,.14);
+    padding: 5px;
+  }
+  .mobile-nav a {
+    text-decoration: none;
+    color: #6d766f;
+    border-radius: 13px;
+    min-height: 51px;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 3px;
+    padding: 3px 1px;
+    font-size: 8px;
+    font-weight: 800;
+  }
+  .mobile-nav a span { font-size: 16px; line-height: 1; }
+  .mobile-nav a.active,
+  .mobile-nav a:hover { background: var(--prod-soft); color: var(--prod-green-2); }
+}
+
+@media (max-width: 620px) {
+  .topbar { width: calc(100% - 18px); top: 7px; margin-top: 7px; border-radius: 18px; }
+  .brand-copy > span { display: none; }
+  .continue-button span:last-child { display: none; }
+  .continue-button { width: 40px; height: 40px; padding: 0; display: grid; place-items: center; }
+  .prod-feature-grid,
+  .prod-module-grid,
+  .prod-library-grid { grid-template-columns: 1fr; }
+  .prod-article-layout { grid-template-columns: 1fr; }
+  .prod-toc { position: static; }
+  .prod-info-grid { grid-template-columns: 1fr; }
+  body { padding-bottom: 74px; }
+}
